@@ -5,6 +5,8 @@ import sys
 """
 This program will search a website with pagination after a specified term like a
 Hyperlink or a Username(E.g @Christiannageby)
+
+Program won't run in windows command prompt
 """
 
 #check if the url is valid and contain the index variable

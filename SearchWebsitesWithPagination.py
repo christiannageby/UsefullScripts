@@ -1,6 +1,8 @@
 import argparse
 import urllib2
 import sys
+import time
+start = time.time()
 
 """
 This program will search a website with pagination after a specified term like a
@@ -15,8 +17,6 @@ def checkUrl(url):
     return True if url.find("*i*") > -1 else False
 
 def urlBuilder(url, index):
-    url = args.base_url
-
     # check if the index is located at the end of the url
     if url.find("*i*") == len(url) - 3:
         return url[:-3] + str(index)
@@ -45,9 +45,9 @@ urls = []
 for i in range(args.min_index, args.max_index):
 
     data = str(urllib2.urlopen(urlBuilder(args.base_url, i)).read())
-    if data.find(str(args.search_term)) != -1:
+    if str(data).find(str(args.search_term)) > -1:
         urls.append(urlBuilder(args.base_url, i))
 
-sys.stdout.write("Found {} pages containing {}\n".format(len(urls), args.search_term))
+sys.stdout.write("Found {} pages containing {} elapsed time {} seconds\n".format(len(urls), args.search_term, (time.time()-start)))
 for url in urls:
     print url

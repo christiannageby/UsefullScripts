@@ -7,9 +7,7 @@ import time
 start = time.time()
 
 """
-This program will search a website with pagination after a specified term like a
-Hyperlink or a Username(E.g @Christiannageby)
-
+This program will search a website with pagination after a specified regular Expression like for example '[a-zA-Z]{3} ' to match 3 char words
 Program won't run in windows command prompt
 """
 
